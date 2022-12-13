@@ -33,10 +33,10 @@ jobs:
           if [[ -f "${{ matrix.recipe }}" ]]; then
             echo "keepgoing=true" >> $GITHUB_ENV
           fi          
-
+      
+      - uses: eWaterCycle/setup-singularity@v7
 
       - name: Build Container
-        uses: eWaterCycle/setup-singularity@v7
         if: ${{ env.keepgoing == 'true' }}
         env:
           recipe: ${{ matrix.recipe }}
