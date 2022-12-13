@@ -37,11 +37,11 @@ jobs:
     steps:
       - name: Continue if Singularity Recipe
         run: |
-          echo "keepgoing=true" >> $GITHUB_ENV
+          # echo "keepgoing=true" >> $GITHUB_ENV
           # Continue if we have a changed Singularity recipe
-          # if [[ "${{ matrix.changed_file }}" = *Singularity* ]]; then
-            # echo "keepgoing=true" >> $GITHUB_ENV
-          # fi          
+          if [[ "${{ matrix.changed_file }}" = *Singularity* ]]; then
+            echo "keepgoing=true" >> $GITHUB_ENV
+          fi          
       - name: Set up Go 1.13
         if: ${{ env.keepgoing == 'true' }}
         uses: actions/setup-go@v1
