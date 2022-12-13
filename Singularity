@@ -33,4 +33,3 @@ From: ubuntu:22.04
 
 %help
     This is a CURP container to build an ubuntu environment which everything you need to run curp is already installed.
-    test
