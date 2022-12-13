@@ -26,8 +26,7 @@ jobs:
     steps:
 
       - name: Check out code for the container build
-        - uses: actions/checkout@v3
-        - uses: eWaterCycle/setup-singularity@v7
+        uses: actions/checkout@v3
 
       - name: Continue if Singularity Recipe Exists
         run: |
@@ -37,6 +36,7 @@ jobs:
 
 
       - name: Build Container
+        uses: eWaterCycle/setup-singularity@v7
         if: ${{ env.keepgoing == 'true' }}
         env:
           recipe: ${{ matrix.recipe }}
